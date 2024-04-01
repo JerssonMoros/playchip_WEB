@@ -26,7 +26,7 @@ button::after, button::before {
   content: '';
   width: 0%;
   height: 2px;
-  background: #0077ff;
+  background: #0857c5;
   display: block;
   transition: 0.5s;
 }
