@@ -1,8 +1,9 @@
-<script>
+<script setup>
+
 </script>
 
 <template>
-    <button data-label="Register" class="rainbow-hover text-uppercase">
+    <button class="rainbow-hover text-uppercase">
         <span class="sp">Iniciar sesión</span>
     </button>
 </template>

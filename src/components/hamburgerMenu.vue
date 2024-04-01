@@ -1,7 +1,7 @@
 <script setup>
   import { CaCloseFilled } from "@kalimahapps/vue-icons";
   import buttonLogin from './buttons/btnLogin.vue'
-
+  import btnAnimated from './buttons/SelectAnimation';
 </script>
 
 <template>
@@ -19,9 +19,13 @@
     <div class="menu d-flex flex-column">
       <!-- Aquí puedes colocar el contenido de tu modal -->
       <ul class="text-uppercase">
-        <li class="btn py-3"><router-link to="/" class="text-light text-decoration-none">Inicio → </router-link></li>
-        <li class="btn py-3"><router-link to="/recommendations" class="text-light text-decoration-none">Recomendaciones → </router-link></li>
-        <li class="btn py-3"><router-link to="/news" class="text-light text-decoration-none">Noticias → </router-link></li>
+        <li>
+          <router-link to="/">
+            <btnAnimated title="Inicio →" @click="$emit('closeMenu')"/>
+          </router-link>
+        </li>
+        <li><router-link to="/recommendations" :active="$route.path === '/recommendations'"><btnAnimated title="Recomendaciones →" @click="$emit('closeMenu')" /></router-link></li>
+        <li><router-link to="/news"><btnAnimated title="Noticias →" @click="$emit('closeMenu')" /></router-link></li>
       </ul>
     </div>
     <div class="">
