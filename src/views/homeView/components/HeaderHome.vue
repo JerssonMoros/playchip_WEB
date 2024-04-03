@@ -42,6 +42,7 @@
 }
 .arma {
     transform: rotate(-10deg);
+    filter:drop-shadow(20px 14px 20px orange);
 }
 .title-custom {
     font-family: 'Josefin Sans', sans-serif;

@@ -69,23 +69,23 @@
   </transition>
 </template>
 
-  <style scoped>
-    .navbar {
-        position: fixed;
-        z-index: 1000;
-    }
-    
-    .content-navbar{
-      border-radius: 2rem;
-      height: 4.5rem;
-      background: rgba(0, 0, 0, 0.28);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(9px);
-      -webkit-backdrop-filter: blur(9px);
-      border: 1px solid #07356d;
-
-    }
+<style scoped>
+  .navbar {
+      position: fixed;
+      z-index: 1000;
+  }
   
+  .content-navbar{
+    border-radius: 2rem;
+    height: 4.5rem;
+    background: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border: 1px solid #07356d;
+
+  }
+
   ul {
     list-style-type: none;
     margin: 0;

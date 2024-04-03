@@ -1,7 +1,9 @@
 <script setup>
+  import btnGame from '@/components/buttons/filterButton.vue'
   import useRecommendation from '../composables/useRecommendation.js';
+  import cardRecommendations from '../components/CardRecommendations.vue'
+  import loader from '../../../components/Loaders/loader1.vue'
   const { recommendations } = useRecommendation();
-
 </script>
 
 <template>
@@ -10,32 +12,13 @@
       <h2 class="text-white">
         Recomendaciones
       </h2>
-      <button class="btn bg-blue-pc-950 text-blue-pc-600">
-        Call of duty: mobile
-      </button>
-    </div>
-    <div class="bg-light p-5">
-      <div class="bg-dark rounded-4 p-3" v-for="(item, index) in recommendations" :key="index">
-        <div class="row mx-1">
-          <div class="col-12 col-sm-6 p-2 d-flex justify-content-center align-items-center">
-            <img :src="item.img" alt="Configuracion de arma" class="mw-100">
-          </div>
-          <div class="col-12 col-sm-6 text-light">
-            <div class="bg-secondary rounded-5 ps-3 text-uppercase d-flex justify-content-center align-items-center">
-                {{ item.weapon }}
-              <div class="rounded-5 fw-bold bg-light text-dark w-100 h-100 ms-2 px-3 py-2">
-                {{ item.mode_game }}
-              </div>
-            </div>
-            <p>{{ item.description }}</p>
-            <p>{{ item.nickname }} - {{ item.uid_game }}</p>
-            <hr>
-            <div class="text-end">
-              {{ item.created_at }}
-            </div>
-          </div>
-        </div>
+      <div>
+        <btnGame filter="COD: Mobile"/>
       </div>
+    </div>
+    <div class="bg-light p-5 d-flex justify-content-center align-items-center">
+      <loader v-if="!recommendations" />
+      <cardRecommendations v-else :recommendations="recommendations"></cardRecommendations>
     </div>
   </div>
 </template>
@@ -43,4 +26,4 @@
 
 <style>
 
-</style>../composables/useRecommendation.js
+</style>
