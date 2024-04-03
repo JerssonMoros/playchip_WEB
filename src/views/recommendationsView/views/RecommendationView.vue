@@ -21,23 +21,12 @@
             <img :src="item.img" alt="Configuracion de arma" class="mw-100">
           </div>
           <div class="col-12 col-sm-6 text-light">
-            <div class="">
-              <div class="text-uppercase p-1">
+            <div class="bg-secondary rounded-5 ps-3 text-uppercase d-flex justify-content-center align-items-center">
                 {{ item.weapon }}
-              </div>
-              <div class="rounded-1 p-1 bg-light text-dark text-uppercase w-auto">
+              <div class="rounded-5 fw-bold bg-light text-dark w-100 h-100 ms-2 px-3 py-2">
                 {{ item.mode_game }}
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-6 text-uppercase p-1">
-                {{ item.weapon }}
-              </div>
-              <div class="col-6 rounded-1 p-1 bg-light text-dark text-uppercase w-auto">
-                {{ item.mode_game }}
-              </div>
-            </div> -->
-
             <p>{{ item.description }}</p>
             <p>{{ item.nickname }} - {{ item.uid_game }}</p>
             <hr>

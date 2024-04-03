@@ -1,11 +1,11 @@
-import axios from 'axios'
+import authApi from '@/api/baseApi'
 import { onMounted, ref } from 'vue'
 
 const useRecommendation = () => {
     const recommendations = ref()
     const getRecommendations = async () => {
         try {
-            const { data } = await axios.get(`http://192.168.0.10:3005/api/recommendations`)
+            const { data } = await authApi.get("/recommendations")
             recommendations.value = data.recommendations
 
         } catch (error) {
