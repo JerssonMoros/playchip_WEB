@@ -1,13 +1,15 @@
 <script setup>
     defineProps({
-        filter: String,
+        filter: Array,
     })
 </script>
 
 <template>
-    <button class="button bg-blue-pc-400">
-        {{ filter }}
-    </button>
+    <div v-for="(name, index) in filter" :key="index" class="px-2">
+        <button class="button bg-blue-pc-400 ">
+            {{ name }}
+        </button>
+    </div>
 </template>
 
 <style scoped>

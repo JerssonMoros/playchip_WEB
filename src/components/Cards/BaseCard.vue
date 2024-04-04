@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div class="tarjeta">
+    <div class="tarjeta my-3">
         <div class="contenido-tarjeta p-2">
             <slot></slot>
         </div>

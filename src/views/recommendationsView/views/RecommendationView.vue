@@ -3,7 +3,9 @@
   import useRecommendation from '../composables/useRecommendation.js';
   import cardRecommendations from '../components/CardRecommendations.vue'
   import loader from '../../../components/Loaders/loader1.vue'
+import { ref } from 'vue';
   const { recommendations } = useRecommendation();
+  const games = ref(['COD: Mobile', 'Warzone: Mobile'])
 </script>
 
 <template>
@@ -12,8 +14,8 @@
       <h2 class="text-white">
         Recomendaciones
       </h2>
-      <div>
-        <btnGame filter="COD: Mobile"/>
+      <div class="d-flex justify-content-center">
+        <btnGame :filter="games" />
       </div>
     </div>
     <div class="bg-light p-5 d-flex justify-content-center align-items-center">
