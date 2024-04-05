@@ -7,13 +7,10 @@
 
 <template>
     <div class="container-fluid p-0 vh-100 pb-5" :style="`background-image: url(${fontHeader})`" >
-      <div class="vh-100 d-flex flex-column justify-content-between">
-        <div class="p-sm-4 p-md-5">
-
-        </div>
-        <div class="row mx-0 pt-5">
-            <div class="col-12 col-sm-4 col-md-6 pt-4 pt-sm-1 order-last order-sm-first d-flex align-items-center justify-content-center">
-              <img :src="arma" class="arma w-auto mw-100" alt="Arma Vista Home">
+      <div class="header vh-100 d-flex flex-column justify-content-between">
+        <div class="row mx-0 h-100 d-flex align-items-center justify-content-center">
+            <div class="col-12 col-sm-4 col-md-6 order-last order-sm-first">
+              <img :src="arma" class="arma mw-100" alt="Arma Vista Home">
             </div>
             <div class="col-12 col-sm-8 col-md-6 text-center pe-md-5 text-lg-end text-white">
               <h1 class="title-custom display-5 fw-bold text-uppercase">

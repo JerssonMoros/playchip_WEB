@@ -9,6 +9,9 @@
 </template>
 
 <style>
+  .header {
+    padding-top: 6rem;
+  }
   .text-blue-pc-50 {
     color: #edf9ff;
   }

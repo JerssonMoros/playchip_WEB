@@ -1,28 +1,27 @@
-import authApi from '@/api/authApi'
+import authApi from '@/api/baseApi'
 
 // export const myAction = async ({ commit }) => {
 
 
 // }
 
-export const signInUser = async ({ commit }, user ) => {
+export const singInUser = async ({ commit }, user ) => {
 
-    console.log(user, "Llego el usuario");
-    // const { email, password } = user
+    const { email, password } = user
 
-    // try {
-    //     console.log("Este es el usuario", user);
-    //     const { data } = await authApi.post('/auth', { email, password })
-    //     const idToken = data[0]
-    //     console.log(data);
+    try {
+        const { data } = await authApi.post('/auth', { email, password })
+        const idToken = data[0]
+        console.log(data);
         
-    //     commit('loginUser', { idToken })
+        commit('loginUser', { idToken })
 
-    //     return { ok: true }
+        return { ok: true }
 
-    // } catch (error) {
-    //     return { ok: false, message: error.response.data.errors[0] }
-    // }
+    } catch (error) {
+        console.log(error);
+        return { ok: false, message: error.response.data.errors[0] }
+    }
 
 }
 

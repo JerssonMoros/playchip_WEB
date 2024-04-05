@@ -10,7 +10,7 @@ import { ref } from 'vue';
 
 <template>
   <div class="container-fluid bg-dark">
-    <div class="bg-black text-center text-uppercase text-ligth pb-3" style="padding-top: 6rem;">
+    <div class="header bg-black text-center text-uppercase text-ligth pb-3">
       <h2 class="text-white">
         Recomendaciones
       </h2>

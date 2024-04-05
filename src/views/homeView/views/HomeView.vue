@@ -4,7 +4,6 @@
   </script>
 
 <template>
-  <div class="">
     <Header/>
     <div class="d-flex justify-content-center align-items-center py-5">
       <div class="card bg-danger w-75 text-center text-light rounded-4">
@@ -49,7 +48,6 @@
        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style>
@@ -61,4 +59,5 @@
 .home-info{
   background-image: radial-gradient(circle, #0066ffb4, #4359fdb4, #634cfab7, #8038f4b9, #9412ebc0);
 }
+
 </style>

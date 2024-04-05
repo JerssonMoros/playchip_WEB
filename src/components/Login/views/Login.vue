@@ -6,6 +6,7 @@
 
   async function onSubmit() {
       const { ok, message } = await loginUser( credentials.value )
+      console.log(ok, message);
       if ( !ok ) msgError.value = message
       setTimeout(() => {
         msgError.value = ""
@@ -20,8 +21,8 @@
     <div class="card2">
       <form class="form" @submit.prevent="onSubmit">
         <p id="heading" class="text-center text-light m-0 py-4 h4">Digita tus datos</p>
-        <div v-if="condition" class="alert alert-warning" role="alert">
-          A simple warning alert—check it out!
+        <div v-if="msgError" class="alert alert-warning" role="alert">
+          {{ msgError }}
         </div>
         <hr class="text-light m-0">
         <div class="field" >

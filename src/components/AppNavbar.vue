@@ -7,6 +7,7 @@
     import btnAnimated from './buttons/SelectAnimation';
     const isLoginOpen = ref(false)
 </script>
+
 <template>
   <div class="navbar px-3 px-sm-5 py-3 w-100">
     <nav class="content-navbar px-4 px-sm-5 p-3 w-100 d-flex align-items-center justify-content-between">

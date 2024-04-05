@@ -1,19 +1,19 @@
-import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
-
+import { computed, ref } from 'vue';
+import { useStore } from 'vuex';
 
 const useAuth = () => {
     
-    const store = useStore()
+    const store = useStore();
+    
 
     const loginUser = async( user ) => {
-        const resp = await store.dispatch('login/signInUser', user )
-        return {ok: true}
-        // return resp
+        const resp = await store.dispatch( 'authModule/singInUser', user );
+        console.log(resp);
+        return resp
     }
 
     const checkAuthStatus = async() => {
-        const resp = await store.dispatch('auth/checkAuthentication')
+        const resp = await store.dispatch('authModule/checkAuthentication')
         return resp
     }
     
