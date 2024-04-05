@@ -1,17 +1,33 @@
 <script setup>
   import { CoBrandMinutemailer } from "@kalimahapps/vue-icons";
   import { CaPassword } from "@kalimahapps/vue-icons";
+  import useAuth from '@/components/Login/composables/useAuth'
+  const { credentials, loginUser, msgError } = useAuth();
+
+  async function onSubmit() {
+      const { ok, message } = await loginUser( credentials.value )
+      if ( !ok ) msgError.value = message
+      setTimeout(() => {
+        msgError.value = ""
+      }, 3000);
+      // if ( !ok ) Swal.fire('Error', message, 'error' )
+      // else router.push({ name: 'no-entry' })
+  }
 </script>
 
 <template>
   <div class="card">
     <div class="card2">
-      <form class="form">
+      <form class="form" @submit.prevent="onSubmit">
         <p id="heading" class="text-center text-light m-0 py-4 h4">Digita tus datos</p>
+        <div v-if="condition" class="alert alert-warning" role="alert">
+          A simple warning alert—check it out!
+        </div>
         <hr class="text-light m-0">
-        <div class="field">
+        <div class="field" >
           <CoBrandMinutemailer />
           <input
+            v-model="credentials.email"
             type="email"
             class="input-field"
             placeholder="Correo"
@@ -20,14 +36,18 @@
         </div>
         <div class="field">
           <CaPassword />
-          <input type="password" class="input-field" placeholder="Contraseña" />
+          <input 
+            v-model="credentials.password"
+            type="password" 
+            class="input-field" 
+            placeholder="Contraseña" />
         </div>
         <div class="row">
           <div class="col-12 col-sm-6 col-md-12 d-grid gap-2 py-3">
             <button class="btn bg-dark text-light">Inciar Sesión</button>
           </div>
           <div class="col-12 col-sm-6 col-md-12 d-grid gap-2 pb-3">
-            <button class="btn btn-secondary border-0" style="transition: 0.4s ease-in-out;">Olvidaste tu contraseña?</button>
+            <a class="btn btn-secondary border-0" style="transition: 0.4s ease-in-out;" >Olvidaste tu contraseña?</a>
           </div>
         </div>
       </form>
@@ -48,15 +68,16 @@
     transition: 0.4s ease-in-out;
   }
 
+  
+  .card2 {
+    border-radius: 0;
+    transition: all 0.2s;
+  }
+  
   .card {
     background-image: linear-gradient(163deg, #3700ff 0%, #00ff75 100%);
     border-radius: 22px;
     transition: all 0.3s;
-  }
-
-  .card2 {
-    border-radius: 0;
-    transition: all 0.2s;
   }
 
   .card2:hover {
@@ -82,64 +103,12 @@
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
   }
 
-  .input-icon {
-    height: 1.3em;
-    width: 1.3em;
-    fill: white;
-  }
-
   .input-field {
     background: none;
     border: none;
     outline: none;
     width: 100%;
     color: #d3d3d3;
-  }
-
-  .button1 {
-    padding: 0.5em;
-    padding-left: 1.1em;
-    padding-right: 1.1em;
-    border-radius: 5px;
-    margin-right: 0.5em;
-    border: none;
-    outline: none;
-    transition: 0.4s ease-in-out;
-    background-color: #252525;
-    color: white;
-  }
-
-  .button1:hover {
-    background-color: black;
-    color: white;
-  }
-
-  .button2 {
-    padding: 0.5em;
-    padding-left: 2.3em;
-    padding-right: 2.3em;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    transition: 0.4s ease-in-out;
-    background-color: #252525;
-    color: white;
-  }
-
-  .button2:hover {
-    background-color: black;
-    color: white;
-  }
-
-  .button3 {
-    margin-bottom: 3em;
-    padding: 0.5em;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    transition: 0.4s ease-in-out;
-    background-color: #252525;
-    color: white;
   }
 
   .btn-secondary:hover {

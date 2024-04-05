@@ -10,16 +10,16 @@
   <div v-for="(item, index) in news" :key="index">
     <baseCard>
       <div class="row mx-1 p-md-3">
-          <div class="col-12 col-sm-6 p-2 pb-3 pb-sm-0 d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-6 p-2 pb-3 pb-sm-0 d-flex justify-content-center align-items-center">
             <img :src="item.img" alt="Configuracion de arma" class="mw-100 rounded-3">
           </div>
-          <div class="col-12 col-sm-6 text-light p-sm-2 p-md-5 d-flex align-items-center justify-content-center">
+          <div class="col-12 col-md-6 text-light p-sm-2 p-md-5 d-flex align-items-center justify-content-center">
             <div>
               <div class="bg-secondary rounded-5 ps-3 text-uppercase d-flex justify-content-center align-items-center">
               <div class="w-100 text-center">
                 {{ item.teaser }}
               </div>  
-              <div class="rounded-5 fw-bold bg-light text-dark w-auto h-100 ms-2 px-3 py-2 text-center">
+              <div class="rounded-5 fw-bold bg-light text-dark h-100 ms-2 px-3 py-2 text-center">
                 {{ item.season ? item.season : "No aplica" }}
               </div>
             </div>
