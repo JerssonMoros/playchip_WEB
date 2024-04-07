@@ -2,17 +2,23 @@
   import { CoBrandMinutemailer } from "@kalimahapps/vue-icons";
   import { CaPassword } from "@kalimahapps/vue-icons";
   import useAuth from '@/components/Login/composables/useAuth'
+  import { useRouter } from "vue-router";
   const { credentials, loginUser, msgError } = useAuth();
-
+  const router = useRouter();
   async function onSubmit() {
       const { ok, message } = await loginUser( credentials.value )
       console.log(ok, message);
-      if ( !ok ) msgError.value = message
-      setTimeout(() => {
-        msgError.value = ""
-      }, 3000);
+      if ( !ok ) {
+        msgError.value = message
+        setTimeout(() => {
+          msgError.value = ""
+        }, 3000);
+      }
       // if ( !ok ) Swal.fire('Error', message, 'error' )
-      // else router.push({ name: 'no-entry' })
+      else {
+        router.push({ name: 'panel' })
+        this.$emit('closeLogin');
+      }
   }
 </script>
 
@@ -21,9 +27,6 @@
     <div class="card2">
       <form class="form" @submit.prevent="onSubmit">
         <p id="heading" class="text-center text-light m-0 py-4 h4">Digita tus datos</p>
-        <div v-if="msgError" class="alert alert-warning" role="alert">
-          {{ msgError }}
-        </div>
         <hr class="text-light m-0">
         <div class="field" >
           <CoBrandMinutemailer />
@@ -51,6 +54,9 @@
             <a class="btn btn-secondary border-0" style="transition: 0.4s ease-in-out;" >Olvidaste tu contraseña?</a>
           </div>
         </div>
+        <div v-if="msgError" class="alert alert-warning" role="alert">
+            {{ msgError }}
+          </div>
       </form>
     </div>
   </div>
