@@ -1,5 +1,6 @@
 import isAuthenticatedGuard from '@/views/panelView/router/panel-guard'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import panelRouter from '../views/panelView/router'
 
 const routes = [
   {
@@ -29,12 +30,7 @@ const routes = [
   },
   {
     path: '/panel',
-    name: 'panel',
-    // beforeEnter: [ isAuthenticatedGuard ],
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "panel" */ '../views/panelView/views/panelView.vue')
+    ...panelRouter
   }
 ]
 
