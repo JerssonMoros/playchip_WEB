@@ -1,6 +1,10 @@
 <script setup>
   import { CaCloseFilled } from "@kalimahapps/vue-icons";
   import LoginView from '../views/Login.vue'
+  function handleLoginSuccess() {
+    // emit('closeLogin')
+    console.log('Se emitio el evento');
+  }
 </script>
 
 <template>
@@ -11,7 +15,7 @@
       </button>
     </div>
     <div class="w-100 p-5 p-sm-2 p-md-5 pt-2 d-flex justify-content-center">
-      <LoginView />
+      <LoginView @loginSuccess="handleLoginSuccess"/>
     </div>
   </div>  
 

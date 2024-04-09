@@ -11,8 +11,8 @@
 </script>
 
 <template>
-  <div class="d-flex align-items-center justify-content-between">
-    <div class="header text-center text-uppercase text-ligth pb-3 w-100" :style="`background-image: url(${fontHeader});`">
+  <div class="">
+    <div class="header bg-black text-center text-uppercase text-ligth pb-3" :style="`background-image: url(${fontHeader});`">
       <h2 class="text-white">
         Recomendaciones
       </h2>

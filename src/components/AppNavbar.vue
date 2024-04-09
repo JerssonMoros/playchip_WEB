@@ -79,7 +79,8 @@
   .content-navbar{
     border-radius: 2rem;
     height: 4.5rem;
-    background: rgba(0, 0, 0, 0.28);
+    background: rgba(17, 17, 17, 0.459);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.459), rgba(17, 17, 17, 0.459)) ;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(9px);
     -webkit-backdrop-filter: blur(9px);

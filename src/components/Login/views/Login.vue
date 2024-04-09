@@ -4,21 +4,22 @@
   import useAuth from '@/components/Login/composables/useAuth'
   import { useRouter } from "vue-router";
   const { credentials, loginUser, msgError } = useAuth();
+  import { defineEmits } from 'vue';
+
   const router = useRouter();
+  const emit = defineEmits();
   async function onSubmit() {
       const { ok, message } = await loginUser( credentials.value )
-      console.log(ok, message);
       if ( !ok ) {
         msgError.value = message
         setTimeout(() => {
           msgError.value = ""
         }, 3000);
       }
-      // if ( !ok ) Swal.fire('Error', message, 'error' )
       else {
-        router.push({ name: 'panel' })
-        this.$emit('closeLogin');
-      }
+        router.push({ name: 'panel' });
+        emit('closeLogin');
+      } 
   }
 </script>
 
@@ -48,7 +49,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-sm-6 col-md-12 d-grid gap-2 py-3">
-            <button class="btn bg-dark text-light">Inciar Sesión</button>
+            <button class="btn bg-dark text-light" >Inciar Sesión</button>
           </div>
           <div class="col-12 col-sm-6 col-md-12 d-grid gap-2 pb-3">
             <a class="btn btn-secondary border-0" style="transition: 0.4s ease-in-out;" >Olvidaste tu contraseña?</a>
@@ -56,7 +57,7 @@
         </div>
         <div v-if="msgError" class="alert alert-warning" role="alert">
             {{ msgError }}
-          </div>
+        </div>
       </form>
     </div>
   </div>

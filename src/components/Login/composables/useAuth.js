@@ -17,24 +17,24 @@ const useAuth = () => {
         return resp
     }
     
-    const logout = () => {
-        store.commit('auth/logout')
-        store.commit('journal/clearEntries')
-    }
+    // const logout = () => {
+    //     store.commit('auth/logout')
+    //     store.commit('journal/clearEntries')
+    // }
     
     return {
         checkAuthStatus,
         loginUser,
-        logout,
+        // logout,
         msgError: ref(),
 
         credentials: ref({
             email: "jersson0423@gmail.com",
-            password: "AdminUser"
+            password: "usuario"
           }),
 
-        authStatus: computed(()=> store.getters['auth/currentState']),
-        username: computed(()=> store.getters['auth/username'])
+        authStatus: computed(()=> store.getters['authModule/currentState']),
+        username: computed(()=> store.getters['authModule/username'])
     }
 }
 
