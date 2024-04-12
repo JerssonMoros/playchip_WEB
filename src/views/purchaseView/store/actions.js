@@ -1,4 +1,4 @@
-import authApi from '@/api/authApi'
+import baseApi from '@/api/baseApi'
 
 // export const myAction = async ({ commit }) => {
 
@@ -12,10 +12,10 @@ export const createUser = async ({ commit }, user ) => {
 
     try {
         
-        const { data } = await authApi.post(':signUp', { email, password, returnSecureToken: true })
+        const { data } = await baseApi.post(':signUp', { email, password, returnSecureToken: true })
         const { idToken, refreshToken } = data
 
-        await authApi.post(':update', { displayName: name, idToken, refreshToken })
+        await baseApi.post(':update', { displayName: name, idToken, refreshToken })
         
         delete user.password
         commit('loginUser', { user, idToken, refreshToken })
@@ -35,7 +35,7 @@ export const signInUser = async ({ commit }, user ) => {
 
     try {
         
-        const { data } = await authApi.post(':signInWithPassword', { email, password, returnSecureToken: true })
+        const { data } = await baseApi.post(':signInWithPassword', { email, password, returnSecureToken: true })
         const { displayName, idToken, refreshToken } = data
         
         user.name = displayName
@@ -63,7 +63,7 @@ export const checkAuthentication = async ({ commit }) => {
 
     try {
         
-        const { data } = await authApi.post(':lookup', { idToken })
+        const { data } = await baseApi.post(':lookup', { idToken })
         // console.log(data)
         const { displayName, email } = data.users[0]
 

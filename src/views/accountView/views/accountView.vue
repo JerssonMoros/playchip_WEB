@@ -9,7 +9,7 @@
     <card>
             <div>
 
-                <h3>Mis Compras</h3>
+                <h3>Mis Cuentas</h3>
                 <hr>
                 <!-- <div v-if="userInfo" class="p-2">
                     <p>

@@ -34,7 +34,7 @@ const useAuth = () => {
           }),
 
         authStatus: computed(()=> store.getters['authModule/currentState']),
-        username: computed(()=> store.getters['authModule/username'])
+        userInfo: computed(()=> store.getters['authModule/userInfo'])
     }
 }
 

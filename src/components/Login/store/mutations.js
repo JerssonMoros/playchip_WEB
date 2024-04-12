@@ -8,6 +8,7 @@ export const loginUser = ( state, { token, user }) => {
 
     if ( token ) {
         state.token = token
+        localStorage.setItem('idToken', token)
     }
 
     state.user   = user
@@ -22,4 +23,5 @@ export const logout = (state) => {
     state.refreshToken = null
     state.status = 'not-authenticated'
 
+    localStorage.clear()
 }
