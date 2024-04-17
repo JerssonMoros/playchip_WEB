@@ -1,3 +1,4 @@
+import accountRouter from '../../accountView/router'
 
 export default {
 
@@ -11,9 +12,8 @@ export default {
            component: () => import(/* webpackChunkName: "profile" */ '../../profileView/views/profileView.vue'),
        },
        {
-            path: '/accounts',
-            name: 'account',
-            component: () => import(/* webpackChunkName: "accounts" */ '../../accountView/views/accountView.vue'),
+            path: '/account',
+            ...accountRouter
         },
        {
            path: '/purchases',

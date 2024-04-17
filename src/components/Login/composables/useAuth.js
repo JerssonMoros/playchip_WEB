@@ -29,7 +29,7 @@ const useAuth = () => {
         msgError: ref(),
 
         credentials: ref({
-            email: "jersson0423@gmail.com",
+            email: "user@gmail.com",
             password: "usuario"
           }),
 

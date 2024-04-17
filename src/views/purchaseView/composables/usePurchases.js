@@ -3,24 +3,19 @@ import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
 
-const useAuth = () => {
+const usePurchases = () => {
     
     const store = useStore()
     let purchases = ref([]);
 
-    onMounted(() => {
-        purchases = await baseApi.get 
-    }),
+    onMounted( async () => {
+        const idToken = localStorage.getItem('idToken')
+        purchases = await baseApi.get('accounts', { headers: { 'x-token': idToken}})
+    })
     
     return {
-        checkAuthStatus,
-        createUser,
-        loginUser,
-        logout,
-
-        authStatus: computed(()=> store.getters['auth/currentState']),
-        username: computed(()=> store.getters['auth/username'])
+        purchases
     }
 }
 
-export default useAuth
+export default usePurchases
